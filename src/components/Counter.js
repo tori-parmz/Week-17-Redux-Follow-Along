@@ -5,20 +5,20 @@ import { connect } from "react-redux";
 //connect function is a higher order component
 import CardBody from "./CardBody"
 
-const Counter = ({count, dispatch}) => {
+const Counter = ({ count, increment, decrement }) => {
 //place the "count" property from initialState in reducer
-    const handleIncrement = () => {
+    // const handleIncrement = () => {
         //use the redux funtion dispatch, taken over the component
         //dispatch an action (object)
-        dispatch({ type: "INCREMENT" });
+        // dispatch({ type: "INCREMENT" });
         //handled by the reducer
         //actions have a mandatory property "type"
         //type can use any name and the function is specified in reducer
-     };
+    //  };
 
-    const handleDecrement = () => {
-        dispatch({ type: "DECREMENT" });
-     };
+    // const handleDecrement = () => {
+    //     dispatch({ type: "DECREMENT" });
+    //  };
 
 
     return (
@@ -28,8 +28,8 @@ const Counter = ({count, dispatch}) => {
             </div>
             <CardBody 
             count={count}
-            handleIncrement={handleIncrement}
-            handleDecrement={handleDecrement}
+            handleIncrement={increment}
+            handleDecrement={decrement}
             />
         </div>
     )
@@ -40,13 +40,25 @@ const Counter = ({count, dispatch}) => {
 
 // const ReduxCounter = connectCounter(Counter);
 
+const mapDispatchToProps = dispatch => {
+    //dispatch fires events (actions)
+    return{
+        increment: () => dispatch({type: "INCREMENT"}),
+        decrement: () => dispatch({type: "DECREMENT"})
+
+    };
+        
+};
+
 const mapStateToProps = state => ({
     count: state.count //"count" name is from initialState argument in reducer
     //map state to props = takes state and converts it into
     //props (no more individual state in components)
 });
 
-export default connect(mapStateToProps)(Counter);
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
 
 //connect takes 4 arguments, to recieve the updated state
-//it needs another argument
+// 1. mapStateToProps — converts state to props
+// 2. mapDispatchToProps — convert dispact to custom functions and pass it in
+//connect function connects component to redux
