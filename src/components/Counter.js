@@ -3,6 +3,7 @@
 import React from "react";
 import { connect } from "react-redux";
 //connect function is a higher order component
+import { incrementCounter, decrementCounter } from "../redux/actions"
 import CardBody from "./CardBody"
 
 const Counter = ({ count, increment, decrement }) => {
@@ -36,15 +37,12 @@ const Counter = ({ count, increment, decrement }) => {
 
 }
 
-// const connectCounter = connect();
-
-// const ReduxCounter = connectCounter(Counter);
 
 const mapDispatchToProps = dispatch => {
     //dispatch fires events (actions)
     return{
-        increment: () => dispatch({type: "INCREMENT"}),
-        decrement: () => dispatch({type: "DECREMENT"})
+        increment: () => dispatch(incrementCounter()),
+        decrement: () => dispatch(decrementCounter())
 
     };
         
