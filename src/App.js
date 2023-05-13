@@ -2,6 +2,7 @@ import './App.css';
 import { Provider } from "react-redux";
 import Counter from './components/Counter';
 import { store } from "./redux/store"
+import DosCounter from './components/DosCounter';
 
 
 
@@ -13,6 +14,7 @@ function App() {
   return (
     <Provider store={store}>
       <Counter />
+      <DosCounter />
     </Provider>
   
   );

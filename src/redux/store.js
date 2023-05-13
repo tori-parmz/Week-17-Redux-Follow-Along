@@ -1,5 +1,7 @@
 import { legacy_createStore } from "redux";
-import reducer from "./reducers/counter-reducer";
+import rootReducer from "./reducers/";
 
-export const store = legacy_createStore(reducer);
+
+//use combineReducers function to use multiple reducers
+export const store = legacy_createStore(rootReducer);
 

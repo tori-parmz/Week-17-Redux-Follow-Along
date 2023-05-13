@@ -1,23 +1,25 @@
-import { INCREMENT, DECREMENT } from "../actions"
+import { DOS_INCREMENT, DOS_DECREMENT } from "../actions"
 
 const initialState = {
-    count:0
+    dosCount:0
   
   };
 
 export default (state = initialState, action) => {
     switch (action.type) {
-      case INCREMENT: 
+      case DOS_INCREMENT: 
         return {
-          count: state.count+1
+          dosCount: state.dosCount+2
         };
-      case DECREMENT:
+      case DOS_DECREMENT:
         return {
-          count: state.count-1
+          dosCount: state.dosCount-2
         };
   
       default:
         return state;
     }
   
-  }
+  } 
+
+  

@@ -49,9 +49,10 @@ const mapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = state => ({
-    count: state.count //"count" name is from initialState argument in reducer
+    count: state.counter.count //"count" name is from initialState argument in reducer
     //map state to props = takes state and converts it into
     //props (no more individual state in components)
+    //combining reducers => specify which state
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
